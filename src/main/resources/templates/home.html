@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="~{base::head('Home')}"></div>
+<div th:replace="~{base::navbar}"></div>
+
+<body>
+    <div class="content-wrapper">
+        <section class="container-fluid">
+        			<!-- TRASFORMAR EM ARQUIVO/CLASSE CSS-->
+			<div class="container-fluid" style="display: flex; padding: 10px 0 0 0;">
+				<div class="container-fluid" style="display: flex;">
+					<h5>Bem-vindo!</h5>
+				</div>
+				<div class="container-fluid" style="display: flex; justify-content: flex-end; gap: 10px;">
+					<p>Empresa: <span> Teste</span></p>
+				</div>
+			</div>
+			
+			<div class="card" style="margin: 10px;">
+			<!-- name="${_csrf.parameterName}": Define o nome do campo como sendo o nome do parâmetro CSRF (Cross-Site Request Forgery). O Spring Security gera automaticamente esse valor para proteger contra ataques CSRF.
+			value="${_csrf.token}": Define o valor do campo como sendo o token CSRF atual. O Spring Security gera esse token para cada sessão de usuário, e ele deve ser enviado em todas as requisições POST para que o servidor possa validar a autenticidade da requisição. -->	
+		<form id="logoutForm" th:action="@{/logout}" method="post">
+	    	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+				<button type="submit" class="btn btn-success">Logout</button>
+		</form>
+			</div>
+        </section>
+    </div>
+
+    <div th:replace="~{base::footer}"></div>
+</body>
+
+</html>
