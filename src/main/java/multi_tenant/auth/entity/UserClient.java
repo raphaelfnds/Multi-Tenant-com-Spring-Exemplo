@@ -1,4 +1,4 @@
-package multi_tenant.entity;
+package multi_tenant.auth.entity;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -16,7 +16,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import multi_tenant.embeddable.Contract;
-import multi_tenant.enun.AcessType;
+import multi_tenant.enun.Access;
 
 @Table(schema = "public", name = "client_user")
 @Entity
@@ -27,7 +27,7 @@ public class UserClient implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@NotBlank(message = "Nome de usuário é um campo obrigatório.")
 	@Column(name = "nick_name", length = 65, nullable = false, unique = true)
 	private String nickname;
@@ -48,9 +48,8 @@ public class UserClient implements Serializable {
 	private String password;
 
 	@Enumerated(EnumType.STRING)
-	private AcessType acessType;
-	
-	private String loja;
+	@Column(name = "access_type")
+	private Access accessType;
 
 	private Boolean situation = true;
 
@@ -106,12 +105,20 @@ public class UserClient implements Serializable {
 		this.password = password;
 	}
 
-	public AcessType getAcessType() {
-		return acessType;
+	public String getNickname() {
+		return nickname;
 	}
 
-	public void setAcessType(AcessType acessType) {
-		this.acessType = acessType;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	public Access getAccessType() {
+		return accessType;
+	}
+
+	public void setAccessType(Access accessType) {
+		this.accessType = accessType;
 	}
 
 	public Boolean getSituation() {
@@ -128,18 +135,6 @@ public class UserClient implements Serializable {
 
 	public void setClient(Client client) {
 		this.client = client;
-	}
-	
-	public String getLoja() {
-		return loja;
-	}
-
-	public void setLoja(String loja) {
-	    if (loja == null || loja.trim().isEmpty()) {
-	        this.loja = "Não informado";
-	    } else {
-	        this.loja = loja;
-	    }
 	}
 
 	@Override
@@ -158,5 +153,7 @@ public class UserClient implements Serializable {
 		UserClient other = (UserClient) obj;
 		return Objects.equals(id, other.id);
 	}
+	
+	
 
 }

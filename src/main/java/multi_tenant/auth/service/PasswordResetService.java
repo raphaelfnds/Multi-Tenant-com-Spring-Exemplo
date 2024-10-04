@@ -1,4 +1,4 @@
-package multi_tenant.service;
+package multi_tenant.auth.service;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -10,10 +10,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import multi_tenant.entity.PasswordResetToken;
-import multi_tenant.entity.UserClient;
-import multi_tenant.repository.PasswordResetTokenRepository;
-import multi_tenant.repository.UserClientRepository;
+import multi_tenant.auth.entity.PasswordResetToken;
+import multi_tenant.auth.entity.UserClient;
+import multi_tenant.auth.repository.PasswordResetTokenRepository;
+import multi_tenant.auth.repository.UserClientRepository;
 import multi_tenant.util.EmailUtil;
 
 @Service

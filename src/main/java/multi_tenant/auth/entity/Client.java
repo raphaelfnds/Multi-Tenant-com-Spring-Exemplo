@@ -1,4 +1,4 @@
-package multi_tenant.entity;
+package multi_tenant.auth.entity;
 
 import java.io.Serializable;
 import java.util.HashSet;

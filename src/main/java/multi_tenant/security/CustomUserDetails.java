@@ -7,7 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import multi_tenant.entity.UserClient;
+import multi_tenant.auth.entity.UserClient;
 
 public class CustomUserDetails implements UserDetails {
 
@@ -25,7 +25,9 @@ public class CustomUserDetails implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		String role = "ROLE_" + userClient.getAcessType().name().toUpperCase();
+		String role = "ROLE_" + userClient.getAccessType().name().toUpperCase();
+		System.out.println("Usuário: " + userClient.getNickname());
+		System.out.println("Cliente: " + userClient.getClient().getName());
         return List.of(new SimpleGrantedAuthority(role));
 	}
 

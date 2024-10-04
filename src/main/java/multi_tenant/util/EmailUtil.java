@@ -6,7 +6,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
 
 import jakarta.mail.internet.MimeMessage;
-import multi_tenant.entity.UserClient;
+import multi_tenant.auth.entity.UserClient;
 
 @Component
 public class EmailUtil {

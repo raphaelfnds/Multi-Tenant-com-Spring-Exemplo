@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import multi_tenant.entity.UserClient;
+import multi_tenant.auth.entity.UserClient;
 import multi_tenant.util.SessionUtil;
 
 @Controller

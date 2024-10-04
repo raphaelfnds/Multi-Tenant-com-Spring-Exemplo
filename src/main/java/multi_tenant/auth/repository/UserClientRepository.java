@@ -1,4 +1,4 @@
-package multi_tenant.repository;
+package multi_tenant.auth.repository;
 
 import java.util.Optional;
 
@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import multi_tenant.entity.UserClient;
+import multi_tenant.auth.entity.UserClient;
 
 @Repository
 public interface UserClientRepository extends JpaRepository<UserClient, Long> {

@@ -1,6 +1,6 @@
 package multi_tenant.enun;
 
-public enum AcessType {
+public enum Access {
 	
 	MASTER, ADMIN
 
